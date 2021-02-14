@@ -78,9 +78,7 @@ def masuk():
 	os.system('clear')
 	print logo
 	print 52* ('\033[0;93m─');time.sleep(0.07)
-	print ('\033[0;92m1.\033[0;97m Login Via Token Facebook');time.sleep(0.07)
-	print ('\033[0;92m2.\033[0;97m Login Via Cookie Facebook');time.sleep(0.07)
-	print ('\033[0;92m3.\033[0;97m Ambil Token Dari Link');time.sleep(0.07)
+	print ('\033[0;92m1.\033[0;97m Login Via Token Facebook');time.sleep(0.07))
 	print ('\033[0;91m0.\033[0;97m Keluar');time.sleep(0.07)
 	print 52* ('\033[0;93m─');time.sleep(0.07)
 	pilih_masuk()
@@ -347,5 +345,4 @@ def pilih_super():
        
 		
 if __name__ == '__main__':
-	menu()
         masuk()
