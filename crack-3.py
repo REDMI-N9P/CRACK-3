@@ -93,10 +93,6 @@ def pilih_masuk():
 		pilih_masuk()
 	elif msuk =="1":
 		login_token()
-	elif msuk =="2":
-		login_cookie()
-	elif msuk =="3":
-		ambil_link()
 	elif msuk =="0":
 		keluar()
 	else:
@@ -130,26 +126,27 @@ def login_token():
 def menu():
 	os.system('clear')
 	try:
-		toket=open('login.txt','r').read()
+		toket = open('login.txt','r').read()
 	except IOError:
+		print '\033[0;91m! Token Invalid '
 		os.system('clear')
-		print"\033[1;96m[!] \x1b[1;91mToken invalid"
 		os.system('rm -rf login.txt')
-		time.sleep(1)
-		keluar()
+		masuk()
 	try:
-		otw = requests.get('https://graph.facebook.com/me?access_token='+toket)
+		otw = requests.get('https://graph.facebook.com/me/?access_token='+toket)
 		a = json.loads(otw.text)
 		nama = a['name']
 		id = a['id']
 	except KeyError:
 		os.system('clear')
-		print"\033[1;96m[!] \033[1;91mToken invalid"
+		print '\033[0;91m ! Token invalid'
 		os.system('rm -rf login.txt')
 		time.sleep(1)
-		login()
+		masuk()
+		time.sleep(1)
+		masuk()
 	except requests.exceptions.ConnectionError:
-		print"\033[1;96m[!] \x1b[1;91mTidak ada koneksi"
+		print '\033[0;91m! Tidak ada koneksi'
 		keluar()
 	os.system("clear")
 	print logo
